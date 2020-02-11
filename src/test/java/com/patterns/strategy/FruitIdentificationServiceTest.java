@@ -1,8 +1,5 @@
 package com.patterns.strategy;
 
-import com.patterns.strategy.Fruit;
-import com.patterns.strategy.FruitIdentificationService;
-import com.patterns.strategy.FruitIdentifier;
 import com.patterns.strategy.strategies.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -73,5 +70,16 @@ public class FruitIdentificationServiceTest {
         Assertions.assertEquals("banana", fruit.getName());
     }
 
-
+    @Test
+    public void should_find_melon_when_having_yellow_color() {
+        // Arrange
+        String color = "yellow";
+        String shape = "long";
+        String size = "medium";
+        // Act
+        Fruit fruit = fruitIdentificationService.identify(color, shape, size);
+        // Assert
+        Assertions.assertNotNull(fruit);
+        Assertions.assertEquals("banana", fruit.getName());
+    }
 }

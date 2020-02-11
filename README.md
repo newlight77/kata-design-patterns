@@ -5,11 +5,11 @@ Write a program to identify fruits. The fruit can by identified by color, form a
 
 Example: 
 
-> green, cylindric, small => kiwi
-> yellow, long, medium => banana
-> yellow, round, small => lemon
-> yellow, round, big => melon
-> red, round, small => strawberry
+> - green, cylindric, small => kiwi
+> - red, diamond, small => strawberry
+> - yellow, round, small => lemon
+> - yellow, long, medium => banana
+> - yellow, round, big => melon
 
 ## Step 2
 
