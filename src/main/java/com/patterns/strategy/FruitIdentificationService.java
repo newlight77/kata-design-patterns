@@ -1,4 +1,4 @@
-package com.patterns;
+package com.patterns.strategy;
 
 import com.patterns.strategy.Fruit;
 import com.patterns.strategy.FruitIdentifier;

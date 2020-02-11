@@ -1,6 +1,7 @@
-package com.patterns;
+package com.patterns.strategy;
 
 import com.patterns.strategy.Fruit;
+import com.patterns.strategy.FruitIdentificationService;
 import com.patterns.strategy.FruitIdentifier;
 import com.patterns.strategy.strategies.*;
 import org.junit.jupiter.api.Assertions;
