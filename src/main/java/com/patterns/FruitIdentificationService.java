@@ -1,30 +1,18 @@
 package com.patterns;
 
 import com.patterns.strategy.Fruit;
+import com.patterns.strategy.FruitIdentifier;
 
 public class FruitIdentificationService {
 
-    public Fruit identify(String color, String shape, String size) {
+    private FruitIdentifier identifier;
 
-        if ("green".equals(color) && "cylindric".equals(shape) && "small".equals(size)) {
-            return new Fruit("kiwi");
-        }
-        if ("red".equals(color) && "diamond".equals(shape)&& "small".equals(size)) {
-            return new Fruit("strawberry");
-        }
-        if ("yellow".equals(color) && "cylindric".equals(shape)&& "small".equals(size)) {
-            return new Fruit("lemon");
-        }
-        if ("yellow".equals(color) && "long".equals(shape)&& "medium".equals(size)) {
-            return new Fruit("banana");
-        }
-        if ("yellow".equals(color) && "round".equals(shape)&& "big".equals(size)) {
-            return new Fruit("melon");
-        }
-        if ("yellow".equals(color) && "round".equals(shape)&& "small".equals(size)) {
-            return new Fruit("lemon");
-        }
-
-        return new Fruit("unknown");
+    public FruitIdentificationService(FruitIdentifier identifier) {
+        this.identifier = identifier;
     }
+
+    public Fruit identify(String color, String shape, String size) {
+        return identifier.identify(color, shape, size).get();
+    }
+
 }

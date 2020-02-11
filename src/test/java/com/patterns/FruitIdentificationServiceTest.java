@@ -1,15 +1,23 @@
 package com.patterns;
 
 import com.patterns.strategy.Fruit;
+import com.patterns.strategy.FruitIdentifier;
+import com.patterns.strategy.strategies.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class FruitIdentificationServiceTest {
 
+    private FruitIdentifier fruitIdentifier = new FruitIdentifier();
     private FruitIdentificationService fruitIdentificationService;
 
     public FruitIdentificationServiceTest() {
-        fruitIdentificationService = new FruitIdentificationService();
+        fruitIdentificationService = new FruitIdentificationService(fruitIdentifier);
+        fruitIdentifier.register(new KiwiIdentificationStrategy(fruitIdentifier));
+        fruitIdentifier.register(new BananaIdentificationStrategy(fruitIdentifier));
+        fruitIdentifier.register(new LemonIdentificationStrategy(fruitIdentifier));
+        fruitIdentifier.register(new MelonIdentificationStrategy(fruitIdentifier));
+        fruitIdentifier.register(new StrawberryIdentificationStrategy(fruitIdentifier));
     }
 
     @Test

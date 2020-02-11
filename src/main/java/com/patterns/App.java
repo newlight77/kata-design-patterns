@@ -5,16 +5,24 @@ package com.patterns;
 
 import com.patterns.strategy.Fruit;
 
+import com.patterns.strategy.FruitIdentifier;
+import com.patterns.strategy.strategies.BananaIdentificationStrategy;
+import com.patterns.strategy.strategies.KiwiIdentificationStrategy;
+
 public class App {
 
     public static void main(String[] args) {
         System.out.println("Hello");
 
-        FruitIdentificationService fruitIdentificationService = new FruitIdentificationService();
+        FruitIdentifier fruitIdentifier = new FruitIdentifier();
+        FruitIdentificationService fruitIdentificationService = new FruitIdentificationService(fruitIdentifier);
+        fruitIdentifier.register(new KiwiIdentificationStrategy(fruitIdentifier));
+        fruitIdentifier.register(new BananaIdentificationStrategy(fruitIdentifier));
 
         Fruit kiwi = fruitIdentificationService.identify("green", "cylindric", "small");
         System.out.println("Found : " + kiwi);
         Fruit banana = fruitIdentificationService.identify("yellow", "long", "medium");
         System.out.println("Found : " + banana);
+
     }
 }
